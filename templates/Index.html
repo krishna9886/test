@@ -369,9 +369,11 @@
         animateSteps();
 
         try {
-            // Using static mock data for GitHub Pages demo
-            await new Promise(r => setTimeout(r, 1500));
-            const response = await fetch('./mock_data.json');
+            const response = await fetch('/rank', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ jd_text: jdText, company_name: companyName, team_skills: teamSkills })
+            });
 
             const data = await response.json();
             loading.style.display = 'none';
