@@ -322,13 +322,16 @@ def run():
         all_embeddings = np.load(EMBED_CACHE)
     else:
         texts = [build_text(c) for c in candidates]
-        print(f"Encoding candidate texts in batches of {BATCH_SIZE}...")
+        print(f"WARNING: Cache not found. Encoding candidate texts in batches of {BATCH_SIZE} (this will take 2-3 mins)...")
         all_embeddings = model.encode(
             texts,
             batch_size=BATCH_SIZE,
             show_progress_bar=True,
             normalize_embeddings=True,
         )
+        print("Saving embeddings cache to disk...")
+        np.save(EMBED_CACHE, all_embeddings)
+        print("Saved cache to embeddings_cache.npy!")
 
     print("Scoring all candidates dynamically against JD...")
     results = []

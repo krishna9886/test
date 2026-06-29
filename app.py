@@ -272,18 +272,29 @@ ai_model = SentenceTransformer('all-MiniLM-L6-v2', device=device)
 
 print("Loading candidates...")
 CANDIDATES = []
-if os.path.exists(EMBED_CACHE) and os.path.exists(JSONL_PATH):
-    print("Embedding cache exists. Loading 100k candidates from candidates.jsonl...")
+if os.path.exists(JSONL_PATH):
+    print("Found full 100k dataset. Loading from candidates.jsonl...")
     with open(JSONL_PATH, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
             if line: CANDIDATES.append(json.loads(line))
     print(f"  Loaded {len(CANDIDATES):,} candidates.")
-    print("Loading pre-computed embeddings from cache...")
-    CANDIDATE_EMBEDDINGS = np.load(EMBED_CACHE)
-    print(f"  Loaded embeddings shape: {CANDIDATE_EMBEDDINGS.shape}")
+    
+    if os.path.exists(EMBED_CACHE):
+        print("Loading pre-computed embeddings from cache...")
+        CANDIDATE_EMBEDDINGS = np.load(EMBED_CACHE)
+        print(f"  Loaded embeddings shape: {CANDIDATE_EMBEDDINGS.shape}")
+    else:
+        print("WARNING: Embedding cache not found. Building embeddings on the fly (this will take 2-3 minutes)...")
+        texts = [build_text(c) for c in CANDIDATES]
+        CANDIDATE_EMBEDDINGS = ai_model.encode(
+            texts, batch_size=512, show_progress_bar=True, normalize_embeddings=True
+        )
+        print("Saving embeddings cache to disk...")
+        np.save(EMBED_CACHE, CANDIDATE_EMBEDDINGS)
+        print("Saved cache to embeddings_cache.npy!")
 elif os.path.exists(SAMPLE_PATH):
-    print("WARNING: Embedding cache not ready. Falling back to sample dataset.")
+    print("WARNING: 100k dataset not found. Falling back to sample dataset.")
     with open(SAMPLE_PATH, 'r', encoding='utf-8') as f:
         CANDIDATES = json.load(f)
     print(f"  Loaded {len(CANDIDATES)} candidates from sample_candidates.json")
