@@ -3,7 +3,7 @@
 TrueBoard is a 7-Layer Behavior-Aware Contextual Ranking Engine built for the India Runs Data & AI Challenge.
 
 ## Links
-- **Interactive Sandbox:** [Update with HuggingFace Space Link]
+- **Interactive Sandbox:** [https://huggingface.co/spaces/vatsal-ag/trueboard](https://huggingface.co/spaces/vatsal-ag/trueboard)
 - **Landing Page:** [https://vatsal-ag.github.io/Redrob-Test/](https://vatsal-ag.github.io/Redrob-Test/)
 
 ## 🚀 How to Run the Full 100k Dataset Locally

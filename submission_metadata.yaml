@@ -24,7 +24,7 @@ team_members:
 # ============================================================================
 github_repo: "https://github.com/vatsal-ag/Redrob-Test"
 
-sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker" # UPDATE THIS
+sandbox_link: "https://huggingface.co/spaces/vatsal-ag/trueboard"
 
 reproduce_command: "python run_pipeline.py"
 
