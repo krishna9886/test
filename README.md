@@ -1,4 +1,4 @@
-# TrueBoard (Team Vatsal and Krishna) 🚀
+# TrueBoard (Team AutoVault Intelligence) 🚀
 
 TrueBoard is a 7-Layer Behavior-Aware Contextual Ranking Engine built for the India Runs Data & AI Challenge.
 
