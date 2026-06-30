@@ -4,9 +4,7 @@
 # The fields here should match what you submit via the portal at upload time.
 # Stage 3 review uses this file to verify your portal metadata.
 
-# ============================================================================
 # Team identity
-# ============================================================================
 team_name: "AutoVault Intelligence"  # Used in leaderboard and announcements
 
 primary_contact:
@@ -19,18 +17,14 @@ team_members:
     email: "vatsalagarwal.2001@gmail.com"
     role: "Solo Participant"
 
-# ============================================================================
 # Code and reproducibility
-# ============================================================================
 github_repo: "https://github.com/vatsal-ag/Redrob-Test"
 
 sandbox_link: "https://huggingface.co/spaces/vatsal-ag/trueboard"
 
 reproduce_command: "python run_pipeline.py"
 
-# ============================================================================
 # Compute environment
-# ============================================================================
 compute:
   platform: "MacBook Pro"
   cpu_cores: 8
@@ -42,28 +36,22 @@ compute:
   pre_computation_required: true
   pre_computation_time_minutes: 3
 
-# ============================================================================
 # AI tools declaration
-# ============================================================================
 ai_tools_used:
   - "Gemini"
   - "Redrob.ai"
 
 ai_usage_summary: |
-  Used Gemini as a sparring partner to brainstorm edge cases in the 7-layer scoring algorithm and refine the behavioral trust formulas. Leveraged Redrob.ai signals for foundational candidate metadata extraction. All core engineering, architecture design, and final algorithm implementations were driven independently.
+  Used Gemini as a sparring partner to brainstorm edge cases in the 7-layer scoring algorithm and refine the behavioral trust formulas. Leveraged Redrob.ai signals for foundational candidate metadata extraction.
 
-# ============================================================================
 # Approach summary (optional but recommended)
-# ============================================================================
 methodology_summary: |
   7-Layer Behavior-Aware Contextual Ranking Engine.
   Extracts implicit and explicit job description features (YoE, keywords, title semantics).
   Uses a SentenceTransformer for base semantic matching, heavily modified by multiple penalty and boost multipliers including: Title Match Profile Gate, Skill Authenticity Verifier against career history, Behavioral Activity multipliers (response rate, last active, open to work), and Proctored Assessment boosts.
   Handles edge cases dynamically. Automatically generates embedding cache to process 100k candidates offline.
 
-# ============================================================================
 # Declarations
-# ============================================================================
 declarations:
   read_submission_spec: true
   code_is_original_work: true
