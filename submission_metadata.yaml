@@ -47,9 +47,10 @@ compute:
 # ============================================================================
 ai_tools_used:
   - "Gemini"
+  - "Redrob.ai"
 
 ai_usage_summary: |
-  Used Google Antigravity Agent (Gemini) as a pair programming assistant to write the ranking logic, build the local web UI, construct the 7-layer scoring system, generate the HuggingFace deployment configurations, and ensure compliance with the hackathon rules.
+  Used Gemini as a sparring partner to brainstorm edge cases in the 7-layer scoring algorithm and refine the behavioral trust formulas. Leveraged Redrob.ai signals for foundational candidate metadata extraction. All core engineering, architecture design, and final algorithm implementations were driven independently.
 
 # ============================================================================
 # Approach summary (optional but recommended)
